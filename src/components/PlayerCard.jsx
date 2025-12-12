@@ -41,22 +41,22 @@ const PlayerCard = () => {
                 {/* Key Stats Summary */}
                 <div className="grid grid-cols-2 gap-4 border-t border-gray-700 pt-6 px-4">
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">FRONTEND: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">FRONTEND: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">BACKEND: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">BACKEND: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">DATABASE: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">DATABASE: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">CLOUD: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">CLOUD: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">NLP: 1</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">NLP: 1</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold tracking-wider text-sm md:text-lg">SECURITY: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">SECURITY: 2+</div>
                     </div>
                 </div>
 
