@@ -11,7 +11,7 @@ function App() {
     <div className="min-h-screen text-white selection:bg-arsenal-gold selection:text-black">
       {/* Fixed Background Image */}
       <div
-        className="fixed inset-0 z-[-1]"
+        className="fixed top-0 left-0 w-full h-full z-0"
         style={{
           backgroundImage: "url('./background.jpeg')",
           backgroundSize: 'cover',
