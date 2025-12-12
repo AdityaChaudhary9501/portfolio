@@ -74,9 +74,7 @@ const TrophyCabinet = () => {
 
                             <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${project.category === 'Abinbev' ? 'bg-arsenal-gold/20 text-arsenal-gold' :
-                                            'bg-arsenal-red/20 text-arsenal-red'
-                                        }`}>
+                                    <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase bg-arsenal-gold/20 text-arsenal-gold`}>
                                         {project.category}
                                     </div>
                                 </div>
