@@ -9,7 +9,7 @@ const PlayerCard = () => {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="arsenal-card w-full max-w-2xl p-8 text-center border-none"
+                className="bg-black/30 backdrop-blur-md border border-white/10 rounded-xl shadow-xl w-full max-w-2xl p-8 text-center"
             >
                 {/* Card Header */}
                 <div className="flex justify-between items-start mb-4">
