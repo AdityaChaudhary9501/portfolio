@@ -25,7 +25,7 @@ const StatsSection = () => {
                             initial={{ x: -20, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-gray-900/50 p-4 rounded-lg border border-gray-700"
+                            className="bg-gray-900/50 p-4 rounded-lg"
                         >
                             <div className="flex justify-between items-end mb-2">
                                 <div>
