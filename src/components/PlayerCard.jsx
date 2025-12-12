@@ -41,22 +41,22 @@ const PlayerCard = () => {
                 {/* Key Stats Summary */}
                 <div className="grid grid-cols-2 gap-4 border-t border-gray-700 pt-6 px-4">
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">FRONTEND: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">FRONTEND: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">BACKEND: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">BACKEND: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">DATABASE: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">DATABASE: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">CLOUD: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">CLOUD: 2+</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">NLP: 1</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">NLP: 1</div>
                     </div>
                     <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider">SECURITY: 2+</div>
+                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">SECURITY: 2+</div>
                     </div>
                 </div>
 
