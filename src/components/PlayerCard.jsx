@@ -44,7 +44,7 @@ const PlayerCard = () => {
                     <div className="text-white font-bold tracking-wider text-lg">BACKEND: 2+</div>
                     <div className="text-white font-bold tracking-wider text-lg">DATABASE: 2+</div>
                     <div className="text-white font-bold tracking-wider text-lg">CLOUD: 2+</div>
-                    <div className="text-white font-bold tracking-wider text-lg">AI / ML: 2+</div>
+                    <div className="text-white font-bold tracking-wider text-lg">AI / ML: 1+</div>
                     <div className="text-white font-bold tracking-wider text-lg">SECURITY: 2+</div>
                 </div>
 
