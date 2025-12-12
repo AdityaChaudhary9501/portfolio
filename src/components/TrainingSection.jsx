@@ -30,7 +30,7 @@ const trainings = [
     },
     {
         title: 'FIFA World Cup Predictor',
-        type: 'Personal Project',
+        type: 'NLP, Sentiment Analysis',
         stats: '81% Accuracy',
         description: 'Devised a machine learning model predicting World Cup winner using Deep Learning and Sentiment Analysis. Incorporated historical match results and sentiment analysis of 700k+ tweets.',
         tech: ['Python', 'Tensorflow', 'NLP'],
