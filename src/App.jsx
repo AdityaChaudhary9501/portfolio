@@ -9,6 +9,17 @@ import HearFromCoaches from './components/HearFromCoaches';
 function App() {
   return (
     <div className="min-h-screen text-white selection:bg-arsenal-gold selection:text-black">
+      {/* Fixed Background Image */}
+      <div
+        className="fixed inset-0 z-[-1]"
+        style={{
+          backgroundImage: "url('./background.jpeg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
       {/* Background Pattern */}
       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none"
         style={{
