@@ -73,8 +73,8 @@ const MatchHistory = () => {
                         <motion.div
                             key={index}
                             initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ delay: index * 0.1 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: index * 0.1, duration: 0.3 }}
                             className="bg-gray-900/80 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300"
                         >
                             <div
