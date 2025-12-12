@@ -44,12 +44,11 @@ const PlayerCard = () => {
                     <div className="text-white font-bold tracking-wider text-lg">BACKEND: 2+</div>
                     <div className="text-white font-bold tracking-wider text-lg">DATABASE: 2+</div>
                     <div className="text-white font-bold tracking-wider text-lg">CLOUD: 2+</div>
-                    <div className="text-white font-bold tracking-wider text-lg">AI / ML: 1+</div>
+                    <div className="text-white font-bold tracking-wider text-lg">NLP: 1</div>
                     <div className="text-white font-bold tracking-wider text-lg">SECURITY: 2+</div>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-gray-700 flex justify-center gap-4">
-                    <Shield className="w-8 h-8 text-white" />
                     <div className="text-sm text-gray-400 flex items-center">
                         INDIA <span className="ml-2 text-xl">🇮🇳</span>
                     </div>

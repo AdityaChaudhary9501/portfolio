@@ -8,8 +8,8 @@ const skills = [
     { name: 'React, JavaScript, Tailwind', stat: 'FE', value: 90, display: '2+', color: 'bg-arsenal-red' },
     { name: 'SQL, Databricks, SSMS', stat: 'DB', value: 88, display: '2+', color: 'bg-white' },
     { name: 'Azure (Functions, ADF)', stat: 'CLD', value: 87, display: '2+', color: 'bg-white' },
-    { name: 'Tensorflow, R', stat: 'AI', value: 84, display: '2+', color: 'bg-arsenal-red' },
-    { name: 'Security', stat: 'SEC', value: 85, display: '2+', color: 'bg-arsenal-gold' },
+    { name: 'Tensorflow, Hugging Face', stat: 'AI', value: 84, display: '2+', color: 'bg-arsenal-red' },
+    { name: 'Snyk, Apiiro', stat: 'SEC', value: 85, display: '2+', color: 'bg-arsenal-gold' },
 ];
 
 const StatsSection = () => {
