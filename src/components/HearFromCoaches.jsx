@@ -49,7 +49,7 @@ const HearFromCoaches = () => {
                                     <div className="mt-4 md:mt-0">
                                         <div className="flex items-center gap-2 text-blue-400 text-sm">
                                             <Linkedin size={16} />
-                                            <span>Linked In Verified</span>
+                                            <span>LinkedIn Verified</span>
                                         </div>
                                     </div>
                                 </div>
