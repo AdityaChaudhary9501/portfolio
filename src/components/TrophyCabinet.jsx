@@ -43,7 +43,7 @@ const projects = [
     },
     {
         title: 'FIFA World Cup Predictor',
-        category: 'Personal Project',
+        category: 'VIT Vellore',
         trophy: 'Gold',
         description: 'Predicted World Cup winner with 81% accuracy using Deep Learning.',
         tech: ['Python', 'Tensorflow'],
@@ -74,9 +74,8 @@ const TrophyCabinet = () => {
 
                             <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${project.trophy === 'Gold' ? 'bg-arsenal-gold/20 text-arsenal-gold' :
-                                        project.trophy === 'Silver' ? 'bg-gray-400/20 text-gray-400' :
-                                            'bg-orange-700/20 text-orange-700'
+                                    <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${project.category === 'Abinbev' ? 'bg-arsenal-gold/20 text-arsenal-gold' :
+                                            'bg-arsenal-red/20 text-arsenal-red'
                                         }`}>
                                         {project.category}
                                     </div>
