@@ -25,7 +25,7 @@ const PlayerCard = () => {
 
                 {/* Player Image */}
                 <div className="relative mx-auto w-48 h-48 mb-6 bg-gray-800 rounded-full border-4 border-arsenal-gold overflow-hidden flex items-center justify-center">
-                    <img src="/aditya.png" alt="Aditya Chaudhary" className="w-full h-full object-cover" />
+                    <img src="./aditya.png" alt="Aditya Chaudhary" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Player Info */}
