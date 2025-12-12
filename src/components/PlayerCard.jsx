@@ -61,8 +61,8 @@ const PlayerCard = () => {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-gray-700 flex justify-center gap-4">
-                    <div className="text-sm text-gray-400 flex items-center">
-                        INDIA <span className="ml-2 text-xl">🇮🇳</span>
+                    <div className="text-sm text-white flex items-center">
+                        Bangalore, India <span className="ml-2 text-xl">🇮🇳</span>
                     </div>
                 </div>
 
