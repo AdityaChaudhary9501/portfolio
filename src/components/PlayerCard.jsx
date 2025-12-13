@@ -4,7 +4,7 @@ import { Shield, Star } from 'lucide-react';
 
 const PlayerCard = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-20 px-4">
+        <div className="flex flex-col items-center justify-center px-4">
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
