@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Cpu, Database, Cloud, ShieldCheck, Terminal, Filter } from 'lucide-react';
+import { Code2, Cpu, Database, Cloud, Terminal } from 'lucide-react';
 import GlassCard from './GlassCard';
+import { SketchUnderline, PencilProgressBar } from './SketchDoodleStroke';
 
 const tabs = ['All', 'Backend & Microservices', 'Frontend & UI', 'Cloud & DevOps', 'Databases & AI'];
 
@@ -58,84 +59,68 @@ const skillCategories = [
 
 const SkillsMatrix = () => {
     const [selectedTab, setSelectedTab] = useState('All');
-
-    const filteredCategories = selectedTab === 'All'
-        ? skillCategories
-        : skillCategories.filter(cat => cat.id === selectedTab);
+    const filtered = selectedTab === 'All' ? skillCategories : skillCategories.filter(c => c.id === selectedTab);
 
     return (
-        <section id="skills" className="py-12 px-4 max-w-6xl mx-auto w-full">
+        <section id="skills" className="py-12 px-4 max-w-5xl mx-auto w-full">
             <GlassCard className="p-6 md:p-10">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-800">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8 pb-6 border-b border-amber-800/25">
                     <div>
-                        <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs font-semibold uppercase tracking-wider mb-1">
-                            <Cpu size={14} /> Technical Stack
+                        <div className="flex items-center gap-2 text-amber-500/70 font-mono text-xs uppercase tracking-widest mb-1">
+                            <Cpu size={13} /> Technical Stack
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
-                            Skills & Expertise Matrix
-                        </h2>
+                        <h2 className="font-sketch text-4xl md:text-5xl font-bold text-amber-100">Skills & Expertise</h2>
+                        <SketchUnderline className="w-44 text-amber-400" />
                     </div>
 
-                    {/* Filter Tabs */}
-                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar bg-slate-950/80 p-1.5 rounded-xl border border-slate-800">
+                    {/* Filter tabs */}
+                    <div className="flex flex-wrap items-center gap-1.5 bg-[#14120E]/60 p-1.5 rounded-sm border border-amber-800/25 self-start">
                         {tabs.map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setSelectedTab(tab)}
-                                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-all ${selectedTab === tab
-                                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
-                                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
-                                    }`}
-                            >
+                            <button key={tab} onClick={() => setSelectedTab(tab)}
+                                className={`px-3 py-1.5 rounded-sm text-xs font-sketch font-semibold whitespace-nowrap transition-all ${
+                                    selectedTab === tab
+                                        ? 'bg-amber-400 text-amber-950 shadow-sm'
+                                        : 'text-amber-400/60 hover:text-amber-300 hover:bg-amber-900/20'
+                                }`}>
                                 {tab}
                             </button>
                         ))}
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <AnimatePresence mode="popLayout">
-                        {filteredCategories.map((category, idx) => {
+                        {filtered.map((category, idx) => {
                             const CategoryIcon = category.icon;
                             return (
-                                <motion.div
-                                    key={category.title}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
+                                <motion.div key={category.title} layout
+                                    initial={{ opacity: 0, scale: 0.96 }}
                                     animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    exit={{ opacity: 0, scale: 0.96 }}
                                     transition={{ duration: 0.3, delay: idx * 0.05 }}
-                                    className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-indigo-500/40 transition-all shadow-lg"
+                                    className="bg-[#14120E]/70 border border-amber-800/25 rounded-sm p-5 hover:border-amber-600/40 transition-all"
+                                    style={{ boxShadow: '2px 2px 0 rgba(212,168,83,0.06)' }}
                                 >
                                     <div className="flex items-center gap-3 mb-3">
-                                        <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                                            <CategoryIcon size={20} />
+                                        <div className="p-2.5 rounded-sm bg-amber-900/25 text-amber-400 border border-amber-700/30">
+                                            <CategoryIcon size={19} />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-bold text-white tracking-tight">
-                                                {category.title}
-                                            </h3>
-                                            <p className="text-slate-400 text-xs">{category.description}</p>
+                                            <h3 className="font-sketch text-xl font-bold text-amber-100">{category.title}</h3>
+                                            <p className="text-[#9A9080] text-xs">{category.description}</p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-3.5 mt-4 pt-3 border-t border-slate-800/60">
-                                        {category.skills.map((skill) => (
+                                    <div className="space-y-3.5 mt-4 pt-3 border-t border-amber-800/20">
+                                        {category.skills.map((skill, sIdx) => (
                                             <div key={skill.name}>
-                                                <div className="flex justify-between items-center text-xs font-medium mb-1.5">
-                                                    <span className="text-slate-200 font-mono">{skill.name}</span>
-                                                    <span className="text-slate-400 font-mono text-[11px] bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-                                                        {skill.exp}
-                                                    </span>
+                                                <div className="flex justify-between items-center text-xs mb-1.5">
+                                                    <span className="text-[#D0C8B0] font-mono">{skill.name}</span>
+                                                    <span className="text-amber-600/70 font-mono text-[10px] bg-[#1C1916] px-2 py-0.5 rounded-sm border border-amber-800/20">{skill.exp}</span>
                                                 </div>
-                                                <div className="h-2 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                                                    <motion.div
-                                                        initial={{ width: 0 }}
-                                                        whileInView={{ width: skill.level }}
-                                                        transition={{ duration: 1, delay: 0.2 }}
-                                                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400"
-                                                    />
-                                                </div>
+                                                {/* Pencil Hatch Shading Progress Bar */}
+                                                <PencilProgressBar level={skill.level} delay={sIdx * 0.15} />
                                             </div>
                                         ))}
                                     </div>

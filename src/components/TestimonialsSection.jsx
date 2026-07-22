@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote, Linkedin, MessageSquareQuote, CheckCircle2 } from 'lucide-react';
+import { Quote, CheckCircle2, MessageSquareQuote } from 'lucide-react';
 import GlassCard from './GlassCard';
+import { SketchUnderline } from './SketchDoodleStroke';
 
 const testimonials = [
     {
         name: 'Aninda Ghosh',
         role: 'MS CS @ NYU | Ex-Anheuser-Busch InBev',
-        relation: 'Aditya’s Team Mentor & Manager @ AB InBev',
+        relation: "Aditya's Team Mentor & Manager @ AB InBev",
         avatarText: 'AG',
-        text: "Aditya joined my team and project as a part of his internship program at AB InBev GCC Digital Solutions. He hit the ground running, surprising me with his tenacious nature towards problem-solving. He would often turn around the tasks at hand faster than expected. His desire to find a balance with learning the business processes while developing solutions was a big positive, something that really struck a positive chord with our stakeholders. His contributions to the technical and product discussions always offered a refreshing take on the problem at hand... These attributes enabled Aditya to successfully convert his internship to a full-time role within the team, where he took the lead for developing one of the most complex hyperautomations we built in the finance domain for account reconciliations."
+        text: "Aditya joined my team and project as a part of his internship program at AB InBev GCC Digital Solutions. He hit the ground running, surprising me with his tenacious nature towards problem-solving. He would often turn around the tasks at hand faster than expected. His desire to find a balance with learning the business processes while developing solutions was a big positive... These attributes enabled Aditya to successfully convert his internship to a full-time role within the team, where he took the lead for developing one of the most complex hyperautomations we built in the finance domain for account reconciliations."
     },
     {
         name: 'Nishtha Ghosh',
@@ -24,60 +25,49 @@ const TestimonialsSection = () => {
     return (
         <section id="recommendations" className="py-12 px-4 max-w-5xl mx-auto w-full">
             <GlassCard className="p-6 md:p-10">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-800">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-amber-800/25">
                     <div>
-                        <div className="inline-flex items-center gap-2 text-indigo-400 font-mono text-xs font-semibold uppercase tracking-wider mb-1">
-                            <MessageSquareQuote size={14} /> Peer Endorsements
+                        <div className="flex items-center gap-2 text-amber-500/70 font-mono text-xs uppercase tracking-widest mb-1">
+                            <MessageSquareQuote size={13} /> Peer Endorsements
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
-                            Recommendations
-                        </h2>
+                        <h2 className="font-sketch text-4xl md:text-5xl font-bold text-amber-100">Recommendations</h2>
+                        <SketchUnderline className="w-48 text-amber-400" />
                     </div>
-                    <span className="text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full self-start md:self-auto border border-slate-700/60">
-                        LinkedIn Verified Feedback
-                    </span>
+                    <span className="sketch-pill px-3 py-1.5 text-xs font-mono text-amber-300/70 self-start md:self-auto">LinkedIn Verified</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {testimonials.map((testimonial, index) => (
-                        <motion.div
-                            key={testimonial.name}
+                        <motion.div key={testimonial.name}
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.15, duration: 0.4 }}
-                            className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-6 relative flex flex-col justify-between hover:border-indigo-500/40 transition-all duration-300"
+                            className="bg-[#14120E]/70 border border-amber-800/25 rounded-sm p-6 flex flex-col justify-between hover:border-amber-600/40 transition-all"
+                            style={{ boxShadow: '2px 2px 0 rgba(212,168,83,0.06)' }}
                         >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-500 p-0.5 shadow-md">
-                                            <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center font-mono font-bold text-xs text-indigo-300">
-                                                {testimonial.avatarText}
-                                            </div>
+                                        <div className="w-10 h-10 rounded-sm bg-amber-900/30 border border-amber-700/40 flex items-center justify-center font-sketch font-bold text-sm text-amber-300 shrink-0">
+                                            {testimonial.avatarText}
                                         </div>
                                         <div>
-                                            <h3 className="text-base font-bold text-white leading-tight">
-                                                {testimonial.name}
-                                            </h3>
-                                            <p className="text-xs text-slate-400 font-medium">
-                                                {testimonial.relation}
-                                            </p>
+                                            <h3 className="font-sketch text-lg font-bold text-amber-100 leading-tight">{testimonial.name}</h3>
+                                            <p className="text-[10px] text-amber-600/70 font-mono">{testimonial.relation}</p>
                                         </div>
                                     </div>
-                                    <Quote size={28} className="text-indigo-500/20 shrink-0" />
+                                    <Quote size={26} className="text-amber-700/20 shrink-0" />
                                 </div>
 
-                                <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 font-normal italic">
+                                <p className="text-[#B8AF9A] text-xs md:text-sm leading-relaxed mb-6 italic font-normal">
                                     "{testimonial.text}"
                                 </p>
                             </div>
 
-                            <div className="pt-4 border-t border-slate-800/60 flex items-center justify-between">
-                                <span className="text-[11px] font-mono text-indigo-400 font-semibold">
-                                    {testimonial.role}
-                                </span>
-                                <div className="flex items-center gap-1.5 text-cyan-400 text-xs font-mono font-medium">
-                                    <CheckCircle2 size={13} />
+                            <div className="pt-4 border-t border-amber-800/20 flex items-center justify-between">
+                                <span className="text-[11px] font-sketch text-amber-400/80">{testimonial.role}</span>
+                                <div className="flex items-center gap-1.5 text-amber-500/70 text-xs font-mono">
+                                    <CheckCircle2 size={12} />
                                     <span>Verified</span>
                                 </div>
                             </div>

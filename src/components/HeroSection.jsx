@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, MapPin, ArrowUpRight, Github, Linkedin } from 'lucide-react';
+import { MapPin, ArrowUpRight, Github, Linkedin, Pencil } from 'lucide-react';
 import GlassCard from './GlassCard';
+import SketchAvatar from './SketchAvatar';
+import { SketchUnderline, SketchCircle, SketchCardBorder } from './SketchDoodleStroke';
 
 const keyMetrics = [
     { label: 'Experience', value: '3+ YOE', subtext: 'Full Stack @ AB InBev' },
@@ -10,125 +12,91 @@ const keyMetrics = [
     { label: 'Academic CGPA', value: '8.71', subtext: 'VIT Vellore B.Tech' },
 ];
 
-const mainTechPills = [
-    'Python & Flask', 'React & Tailwind', 'Azure & Databricks',
-    'SQL Server', 'Microservices', 'LLMs & Hugging Face', 'Snyk & Security'
-];
-
 const HeroSection = () => {
     return (
-        <section id="about" className="pt-28 pb-12 px-4 max-w-5xl mx-auto w-full">
+        <section id="about" className="min-h-[calc(100vh-6rem)] flex flex-col justify-center items-center py-6 px-4 max-w-5xl mx-auto w-full my-auto">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.7 }}
+                className="w-full my-auto"
             >
-                <GlassCard className="p-6 md:p-10 relative overflow-hidden">
-                    {/* Background glows */}
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+                <GlassCard className="p-5 md:p-8 relative overflow-hidden">
+                    {/* Warm background glows */}
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-amber-700/8 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-900/8 rounded-full blur-3xl pointer-events-none" />
 
-                    <div className="relative z-10 flex flex-col items-center md:flex-row md:items-start gap-8">
+                    {/* Hand-drawn doodle corner accents */}
+                    <div className="absolute top-4 right-6 font-sketch text-amber-500/25 text-5xl leading-none select-none rotate-6">✦</div>
+                    <div className="absolute bottom-6 left-8 font-sketch text-amber-500/20 text-4xl leading-none select-none -rotate-12">✧</div>
 
-                        {/* Avatar Column */}
+                    <div className="relative z-10 flex flex-col items-center md:flex-row md:items-start gap-6 lg:gap-10">
+
+                        {/* Hand-Drawn Pencil Sketch Avatar Column */}
                         <div className="flex flex-col items-center shrink-0">
-                            <div className="relative">
-                                <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl p-1 bg-gradient-to-tr from-indigo-500 via-cyan-400 to-emerald-400 shadow-2xl glow-blue">
-                                    <div className="w-full h-full bg-slate-950 rounded-[14px] overflow-hidden">
-                                        <img
-                                            src="/aditya.jpeg"
-                                            alt="Aditya Chaudhary"
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-                                {/* Online Badge */}
-                                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-slate-900/90 border border-slate-700/80 px-2.5 py-0.5 rounded-full shadow-lg whitespace-nowrap">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                                    <span className="text-[10px] font-mono font-medium text-slate-200">Open for Roles</span>
-                                </div>
-                            </div>
-                            <div className="mt-6 flex items-center gap-1.5 text-slate-400 text-xs font-medium">
-                                <MapPin size={13} className="text-cyan-400" />
+                            <SketchAvatar imageSrc="/aditya.jpeg" alt="Aditya Chaudhary" />
+                            <div className="mt-2 flex items-center gap-1.5 text-amber-500/70 text-xs font-mono">
+                                <MapPin size={12} className="text-amber-500/80" />
                                 <span>Bangalore, India 🇮🇳</span>
                             </div>
                         </div>
 
-                        {/* Bio Info Column */}
+                        {/* Info Column */}
                         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-mono mb-3">
-                                <Terminal size={13} />
-                                <span>Full Stack & Cloud Engineer</span>
+                            {/* Label */}
+                            <div className="inline-flex items-center gap-2 px-3 py-0.5 mb-2 bg-amber-900/20 border border-amber-700/40 rounded-sm">
+                                <Pencil size={12} className="text-amber-400" />
+                                <span className="text-xs font-mono text-amber-300/80 tracking-wider uppercase">Full Stack & Cloud Engineer</span>
                             </div>
 
-                            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+                            <h1 className="font-sketch text-4xl md:text-5xl font-bold text-amber-100 mb-1 leading-tight">
                                 Aditya Chaudhary
                             </h1>
 
-                            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-6 font-normal max-w-2xl">
-                                Software Engineer specializing in high-throughput microservices, enterprise financial platforms, and data pipelines. Proven track record saving <span className="text-indigo-400 font-semibold">$600K+ annually</span> and handling billions in financial data.
+                            {/* Animated SVG Hand-Drawn Pencil Underline */}
+                            <SketchUnderline className="w-52 text-amber-400 mb-4" />
+
+                            <p className="text-[#C8BFA8] text-xs md:text-sm leading-relaxed mb-5 font-normal max-w-xl">
+                                Software Engineer specializing in high-throughput microservices, enterprise financial platforms, and data pipelines. Proven track record saving{' '}
+                                <SketchCircle>
+                                    <span className="text-amber-300 font-semibold font-sketch text-base px-1">$600K+ annually</span>
+                                </SketchCircle>{' '}
+                                and handling billions in financial data.
                             </p>
 
-                            {/* Tech Stack Pills */}
-                            <div className="flex flex-wrap justify-center md:justify-start gap-1.5 mb-8">
-                                {mainTechPills.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="px-2.5 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-slate-300 font-mono text-[11px] font-medium hover:border-indigo-500/40 transition-colors"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-
-                            {/* CTA Buttons */}
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                                <a
-                                    href="#experience"
-                                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white text-sm font-semibold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all hover:scale-105"
-                                >
+                            {/* Action CTAs */}
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
+                                <a href="#experience"
+                                    className="px-4 py-2 font-sketch font-bold text-amber-950 bg-amber-400 hover:bg-amber-300 text-xs shadow-md hover:shadow-amber-400/20 flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
                                     <span>Explore Experience</span>
-                                    <ArrowUpRight size={16} />
+                                    <ArrowUpRight size={14} />
                                 </a>
-                                <a
-                                    href="https://github.com/AdityaChaudhary9501"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-sm font-semibold flex items-center gap-2 transition-all hover:scale-105"
-                                >
-                                    <Github size={16} />
-                                    <span>GitHub</span>
+                                <a href="https://github.com/AdityaChaudhary9501" target="_blank" rel="noopener noreferrer"
+                                    className="px-3.5 py-2 font-sketch font-bold text-amber-200 bg-[#2A2520] hover:bg-[#332E28] border border-amber-800/40 text-xs flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
+                                    <Github size={14} /><span>GitHub</span>
                                 </a>
-                                <a
-                                    href="https://linkedin.com/in/aditya-chaudhary-71306b190"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-sm font-semibold flex items-center gap-2 transition-all hover:scale-105"
-                                >
-                                    <Linkedin size={16} />
-                                    <span>LinkedIn</span>
+                                <a href="https://linkedin.com/in/aditya-chaudhary-71306b190" target="_blank" rel="noopener noreferrer"
+                                    className="px-3.5 py-2 font-sketch font-bold text-amber-200 bg-[#2A2520] hover:bg-[#332E28] border border-amber-800/40 text-xs flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
+                                    <Linkedin size={14} /><span>LinkedIn</span>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     {/* Impact Metrics Grid */}
-                    <div className="mt-10 pt-8 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="mt-6 pt-5 border-t border-amber-800/25 grid grid-cols-2 md:grid-cols-4 gap-3">
                         {keyMetrics.map((metric, idx) => (
-                            <div
-                                key={idx}
-                                className="bg-slate-950/60 border border-slate-800/70 rounded-xl p-4 text-center transition-all hover:border-indigo-500/40 hover:bg-slate-900/60"
-                            >
-                                <div className="text-slate-400 text-[11px] font-mono uppercase tracking-wider mb-1">
-                                    {metric.label}
-                                </div>
-                                <div className="text-2xl md:text-3xl font-extrabold gradient-text">
-                                    {metric.value}
-                                </div>
-                                <div className="text-slate-400 text-[11px] mt-1">
-                                    {metric.subtext}
-                                </div>
-                            </div>
+                            <SketchCardBorder key={idx}>
+                                <motion.div
+                                    whileHover={{ y: -2 }}
+                                    className="bg-[#14120E]/80 border border-amber-800/25 rounded-sm p-3 text-center hover:border-amber-600/40 transition-all h-full"
+                                    style={{ boxShadow: '2px 2px 0 rgba(212,168,83,0.08)' }}
+                                >
+                                    <div className="text-amber-600/70 text-[10px] font-mono uppercase tracking-widest mb-0.5">{metric.label}</div>
+                                    <div className="font-sketch text-2xl md:text-3xl font-bold amber-text">{metric.value}</div>
+                                    <div className="text-[#A09880] text-[10px] mt-0.5">{metric.subtext}</div>
+                                </motion.div>
+                            </SketchCardBorder>
                         ))}
                     </div>
                 </GlassCard>

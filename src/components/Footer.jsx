@@ -1,68 +1,48 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowUp, Code2, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, BookOpen } from 'lucide-react';
 
 const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
-        <footer className="mt-20 border-t border-slate-800/80 bg-[#060911]/80 backdrop-blur-md relative z-10 py-12 px-4">
+        <footer className="mt-20 border-t border-amber-800/25 bg-[#0E0C09]/80 backdrop-blur-md relative z-10 py-12 px-4">
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <div className="flex items-center gap-2 mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-mono font-bold text-xs border border-indigo-500/30">
-                            &lt;/&gt;
+                    <div className="flex items-center gap-2.5 mb-2">
+                        <div className="w-8 h-8 rounded-sm bg-[#1C1916] border border-amber-700/40 flex items-center justify-center">
+                            <BookOpen size={15} className="text-amber-400" />
                         </div>
-                        <span className="font-bold text-white tracking-tight text-lg">Aditya Chaudhary</span>
+                        <span className="font-sketch font-bold text-xl text-amber-200">Aditya Chaudhary</span>
                     </div>
-                    <p className="text-slate-400 text-xs font-mono max-w-md">
-                        Full Stack Software Engineer • Building high-performance microservices, data ingestion systems & secure web apps.
+                    <p className="text-[#908070] text-xs font-mono max-w-sm">
+                        Full Stack Software Engineer · Building high-performance microservices, data ingestion systems & secure web applications.
                     </p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <a
-                        href="https://github.com/AdityaChaudhary9501"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-all"
-                        title="GitHub Profile"
-                    >
-                        <Github size={18} />
-                    </a>
-                    <a
-                        href="https://linkedin.com/in/adityachaudhary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-all"
-                        title="LinkedIn Profile"
-                    >
-                        <Linkedin size={18} />
-                    </a>
-                    <a
-                        href="mailto:adityachaudhary9501@gmail.com"
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-all"
-                        title="Email Contact"
-                    >
-                        <Mail size={18} />
-                    </a>
-                    <button
-                        onClick={scrollToTop}
-                        className="p-2.5 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 hover:bg-indigo-600 hover:text-white transition-all ml-2"
-                        title="Back to Top"
-                    >
-                        <ArrowUp size={18} />
+                <div className="flex items-center gap-3">
+                    {[
+                        { href: 'https://github.com/AdityaChaudhary9501', icon: Github, label: 'GitHub' },
+                        { href: 'https://linkedin.com/in/aditya-chaudhary-71306b190', icon: Linkedin, label: 'LinkedIn' },
+                        { href: 'mailto:adityachaudhary9501@gmail.com', icon: Mail, label: 'Email' },
+                    ].map(({ href, icon: Icon, label }) => (
+                        <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined}
+                            rel="noopener noreferrer"
+                            className="p-2.5 rounded-sm bg-[#1C1916] border border-amber-800/30 text-amber-500/60 hover:text-amber-300 hover:border-amber-700/50 transition-all"
+                            title={label}>
+                            <Icon size={17} />
+                        </a>
+                    ))}
+                    <button onClick={scrollToTop}
+                        className="p-2.5 rounded-sm bg-amber-400/15 text-amber-400 border border-amber-700/40 hover:bg-amber-400 hover:text-amber-950 transition-all ml-1"
+                        title="Back to Top">
+                        <ArrowUp size={17} />
                     </button>
                 </div>
             </div>
 
-            <div className="max-w-5xl mx-auto mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-2">
+            <div className="max-w-5xl mx-auto mt-8 pt-6 border-t border-amber-800/20 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#706050] gap-2">
                 <p>© {new Date().getFullYear()} Aditya Chaudhary. Built with React & Tailwind CSS.</p>
-                <p className="flex items-center gap-1.5 text-slate-400">
-                    <Terminal size={12} className="text-cyan-400" />
-                    <span>Engineered for performance & scalability</span>
-                </p>
+                <p className="text-amber-700/60 font-sketch font-semibold text-sm">Crafted with ✏️ and ☕</p>
             </div>
         </footer>
     );
