@@ -2,7 +2,7 @@ import React from 'react';
 
 const GlassCard = ({ children, className = '' }) => {
     return (
-        <div className={`bg-black/30 backdrop-blur-md border border-white/10 rounded-xl shadow-xl overflow-hidden ${className}`}>
+        <div className={`bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ${className}`}>
             {children}
         </div>
     );

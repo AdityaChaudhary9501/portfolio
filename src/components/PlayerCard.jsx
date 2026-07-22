@@ -1,74 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Star } from 'lucide-react';
+import HeroSection from './HeroSection';
 
 const PlayerCard = () => {
-    return (
-        <div className="flex flex-col items-center justify-center px-4">
-            <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="bg-black/30 backdrop-blur-md border border-white/10 rounded-xl shadow-xl w-full max-w-2xl p-8 text-center"
-            >
-                {/* Card Header */}
-                <div className="flex justify-between items-start mb-4">
-                    <div className="text-left">
-                        <div className="text-4xl font-bold text-white">2+</div>
-                        <div className="text-sm text-white">YOE</div>
-                    </div>
-                    <div className="text-right">
-                        <div className="text-2xl font-bold">FULL STACK</div>
-                        <div className="text-sm text-white">POS</div>
-                    </div>
-                </div>
-
-                {/* Player Image */}
-                <div className="relative mx-auto w-48 h-48 mb-6 bg-gray-800 rounded-full border-4 border-arsenal-gold overflow-hidden flex items-center justify-center">
-                    <img src="./aditya.png" alt="Aditya Chaudhary" className="w-full h-full object-cover" />
-                </div>
-
-                {/* Player Info */}
-                <h1 className="text-4xl font-bold mb-2 text-white tracking-wider">ADITYA</h1>
-                <div className="flex items-center justify-center gap-2 mb-6 text-arsenal-gold">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                </div>
-
-                {/* Key Stats Summary */}
-                <div className="grid grid-cols-2 gap-4 border-t border-gray-700 pt-6 px-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">FRONTEND: 2+</div>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">BACKEND: 2+</div>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">DATABASE: 2+</div>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">CLOUD: 2+</div>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">NLP: 1</div>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg">
-                        <div className="text-white font-bold text-xs md:text-lg tracking-normal md:tracking-wider text-center">SECURITY: 2+</div>
-                    </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-gray-700 flex justify-center gap-4">
-                    <div className="text-sm text-white flex items-center">
-                        Bangalore, India <span className="ml-2 text-xl">🇮🇳</span>
-                    </div>
-                </div>
-
-            </motion.div>
-        </div>
-    );
+    return <HeroSection />;
 };
 
 export default PlayerCard;

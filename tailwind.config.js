@@ -7,15 +7,17 @@ export default {
     theme: {
         extend: {
             colors: {
-                'arsenal-red': '#EF0107',
-                'arsenal-white': '#FFFFFF',
-                'arsenal-gold': '#9C824A',
-                'arsenal-navy': '#023474',
-                'arsenal-dark': '#0c0c0c', // Darker background for contrast
+                'dev-bg': '#090D16',
+                'dev-card': 'rgba(17, 24, 39, 0.7)',
+                'dev-border': 'rgba(255, 255, 255, 0.08)',
+                'brand-primary': '#6366F1', // Indigo
+                'brand-accent': '#06B6D4', // Cyan
+                'brand-emerald': '#10B981', // Emerald green
+                'brand-purple': '#8B5CF6', // Purple
             },
             fontFamily: {
-                'oswald': ['Oswald', 'sans-serif'],
-                'rajdhani': ['Rajdhani', 'sans-serif'],
+                'sans': ['Inter', 'sans-serif'],
+                'mono': ['JetBrains Mono', 'monospace'],
             }
         },
     },
