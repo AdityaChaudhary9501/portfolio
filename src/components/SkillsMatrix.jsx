@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Cpu, Database, Cloud, Terminal } from 'lucide-react';
+import { Code2, Cpu, Database, Cloud, Terminal, Sparkles, CheckCircle2 } from 'lucide-react';
 import GlassCard from './GlassCard';
 import { SketchUnderline, PencilProgressBar } from './SketchDoodleStroke';
 
@@ -62,65 +62,71 @@ const SkillsMatrix = () => {
     const filtered = selectedTab === 'All' ? skillCategories : skillCategories.filter(c => c.id === selectedTab);
 
     return (
-        <section id="skills" className="py-12 px-4 max-w-5xl mx-auto w-full">
-            <GlassCard className="p-6 md:p-10">
+        <section id="skills" className="w-full">
+            <GlassCard>
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8 pb-6 border-b border-amber-800/25">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-sky-100">
                     <div>
-                        <div className="flex items-center gap-2 text-amber-500/70 font-mono text-xs uppercase tracking-widest mb-1">
-                            <Cpu size={13} /> Technical Stack
+                        <div className="flex items-center gap-2 text-sky-600 font-semibold text-xs uppercase tracking-wider mb-1">
+                            <Cpu size={14} /> Technical Stack
                         </div>
-                        <h2 className="font-sketch text-4xl md:text-5xl font-bold text-amber-100">Skills & Expertise</h2>
-                        <SketchUnderline className="w-44 text-amber-400" />
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">Skills & Control Center</h2>
+                        <SketchUnderline className="w-52 text-sky-400" />
                     </div>
 
-                    {/* Filter tabs */}
-                    <div className="flex flex-wrap items-center gap-1.5 bg-[#14120E]/60 p-1.5 rounded-sm border border-amber-800/25 self-start">
+                    {/* Apple Style Filter Tabs */}
+                    <div className="flex flex-wrap items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-full border border-sky-100 self-start md:self-auto">
                         {tabs.map((tab) => (
-                            <button key={tab} onClick={() => setSelectedTab(tab)}
-                                className={`px-3 py-1.5 rounded-sm text-xs font-sketch font-semibold whitespace-nowrap transition-all ${
+                            <button
+                                key={tab}
+                                onClick={() => setSelectedTab(tab)}
+                                className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
                                     selectedTab === tab
-                                        ? 'bg-amber-400 text-amber-950 shadow-sm'
-                                        : 'text-amber-400/60 hover:text-amber-300 hover:bg-amber-900/20'
-                                }`}>
+                                        ? 'bg-white text-sky-700 shadow-md shadow-sky-500/10 border border-sky-100'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                                }`}
+                            >
                                 {tab}
                             </button>
                         ))}
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* 2-Column Widget Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <AnimatePresence mode="popLayout">
-                        {filtered.map((category, idx) => {
+                        {filtered.map((category) => {
                             const CategoryIcon = category.icon;
                             return (
-                                <motion.div key={category.title} layout
-                                    initial={{ opacity: 0, scale: 0.96 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.96 }}
-                                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                                    className="bg-[#14120E]/70 border border-amber-800/25 rounded-sm p-5 hover:border-amber-600/40 transition-all"
-                                    style={{ boxShadow: '2px 2px 0 rgba(212,168,83,0.06)' }}
+                                <motion.div
+                                    key={category.title}
+                                    layout
+                                    transition={{ duration: 0.2 }}
+                                    className="bg-white/90 border border-sky-100 rounded-3xl p-6 shadow-lg shadow-sky-500/5 hover:shadow-xl hover:border-sky-300 transition-all group"
                                 >
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="p-2.5 rounded-sm bg-amber-900/25 text-amber-400 border border-amber-700/30">
-                                            <CategoryIcon size={19} />
+                                    <div className="flex items-center gap-3.5 mb-4">
+                                        <div className="p-3 rounded-2xl bg-sky-50 text-sky-600 border border-sky-200/60 shadow-sm group-hover:scale-110 transition-transform">
+                                            <CategoryIcon size={22} />
                                         </div>
                                         <div>
-                                            <h3 className="font-sketch text-xl font-bold text-amber-100">{category.title}</h3>
-                                            <p className="text-[#9A9080] text-xs">{category.description}</p>
+                                            <h3 className="font-bold text-slate-900 text-lg leading-tight">{category.title}</h3>
+                                            <p className="text-xs text-slate-500 font-medium">{category.description}</p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-3.5 mt-4 pt-3 border-t border-amber-800/20">
-                                        {category.skills.map((skill, sIdx) => (
-                                            <div key={skill.name}>
-                                                <div className="flex justify-between items-center text-xs mb-1.5">
-                                                    <span className="text-[#D0C8B0] font-mono">{skill.name}</span>
-                                                    <span className="text-amber-600/70 font-mono text-[10px] bg-[#1C1916] px-2 py-0.5 rounded-sm border border-amber-800/20">{skill.exp}</span>
+                                    <div className="space-y-4 pt-2">
+                                        {category.skills.map((skill) => (
+                                            <div key={skill.name} className="space-y-1.5">
+                                                <div className="flex justify-between items-center text-xs">
+                                                    <span className="font-semibold text-slate-800">{skill.name}</span>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-[10px] text-slate-400 font-mono">{skill.exp}</span>
+                                                        <span className="px-2 py-0.5 bg-sky-100 text-sky-700 font-bold rounded-md text-[11px]">
+                                                            {skill.level}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                                {/* Pencil Hatch Shading Progress Bar */}
-                                                <PencilProgressBar level={skill.level} delay={sIdx * 0.15} />
+                                                <PencilProgressBar level={skill.level} />
                                             </div>
                                         ))}
                                     </div>

@@ -1,106 +1,127 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, ArrowUpRight, Github, Linkedin, Pencil } from 'lucide-react';
+import { MapPin, ArrowUpRight, Github, Linkedin, Sparkles, ShieldCheck, Zap, Award, Code2 } from 'lucide-react';
 import GlassCard from './GlassCard';
 import SketchAvatar from './SketchAvatar';
-import { SketchUnderline, SketchCircle, SketchCardBorder } from './SketchDoodleStroke';
+import { SketchCircle, SketchUnderline } from './SketchDoodleStroke';
+import TerminalWidget from './TerminalWidget';
 
 const keyMetrics = [
-    { label: 'Experience', value: '3+ YOE', subtext: 'Full Stack @ AB InBev' },
-    { label: 'Cost Savings', value: '$600K+', subtext: 'Annual tool savings' },
-    { label: 'Reliability', value: '-35%', subtext: 'Incident reduction' },
-    { label: 'Academic CGPA', value: '8.71', subtext: 'VIT Vellore B.Tech' },
+    { label: 'Experience', value: '3+ YOE', subtext: 'Full Stack @ AB InBev', icon: Zap },
+    { label: 'Annual Savings', value: '$600K+', subtext: 'In-house Rec tool', icon: ShieldCheck },
+    { label: 'Reliability', value: '-35%', subtext: 'Incident reduction', icon: Code2 },
+    { label: 'Academic CGPA', value: '8.71', subtext: 'VIT Vellore B.Tech', icon: Award },
 ];
 
 const HeroSection = () => {
     return (
-        <section id="about" className="min-h-[calc(100vh-6rem)] flex flex-col justify-center items-center py-6 px-4 max-w-5xl mx-auto w-full my-auto">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="w-full my-auto"
-            >
-                <GlassCard className="p-5 md:p-8 relative overflow-hidden">
-                    {/* Warm background glows */}
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-amber-700/8 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-900/8 rounded-full blur-3xl pointer-events-none" />
+        <section id="about" className="w-full">
+            <div className="w-full flex justify-center">
+                <GlassCard className="p-5 sm:p-7 md:p-8">
+                    {/* Apple Light Blue Gradient Glows */}
+                    <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-sky-400/20 to-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-indigo-300/15 to-sky-300/20 rounded-full blur-3xl pointer-events-none" />
 
-                    {/* Hand-drawn doodle corner accents */}
-                    <div className="absolute top-4 right-6 font-sketch text-amber-500/25 text-5xl leading-none select-none rotate-6">✦</div>
-                    <div className="absolute bottom-6 left-8 font-sketch text-amber-500/20 text-4xl leading-none select-none -rotate-12">✧</div>
+                    {/* Main Landscape Grid (Profile Left, Terminal/Code Right) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
 
-                    <div className="relative z-10 flex flex-col items-center md:flex-row md:items-start gap-6 lg:gap-10">
-
-                        {/* Hand-Drawn Pencil Sketch Avatar Column */}
-                        <div className="flex flex-col items-center shrink-0">
-                            <SketchAvatar imageSrc="/aditya.jpeg" alt="Aditya Chaudhary" />
-                            <div className="mt-2 flex items-center gap-1.5 text-amber-500/70 text-xs font-mono">
-                                <MapPin size={12} className="text-amber-500/80" />
-                                <span>Bangalore, India 🇮🇳</span>
-                            </div>
-                        </div>
-
-                        {/* Info Column */}
-                        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-                            {/* Label */}
-                            <div className="inline-flex items-center gap-2 px-3 py-0.5 mb-2 bg-amber-900/20 border border-amber-700/40 rounded-sm">
-                                <Pencil size={12} className="text-amber-400" />
-                                <span className="text-xs font-mono text-amber-300/80 tracking-wider uppercase">Full Stack & Cloud Engineer</span>
+                        {/* Left Column: Personal Profile & Metrics (7 cols) */}
+                        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+                            
+                            {/* Live Badge */}
+                            <div className="inline-flex items-center gap-2 px-3 py-1 mb-3 bg-sky-50/90 border border-sky-200/80 rounded-full shadow-sm">
+                                <Sparkles size={13} className="text-sky-500 animate-spin" style={{ animationDuration: '6s' }} />
+                                <span className="text-[11px] font-semibold text-sky-700 tracking-wide uppercase">
+                                    Full Stack & Cloud Engineer
+                                </span>
                             </div>
 
-                            <h1 className="font-sketch text-4xl md:text-5xl font-bold text-amber-100 mb-1 leading-tight">
-                                Aditya Chaudhary
-                            </h1>
+                            <div className="flex flex-col lg:flex-row items-center gap-5 mb-4">
+                                <SketchAvatar imageSrc="/aditya.jpeg" alt="Aditya Chaudhary" />
 
-                            {/* Animated SVG Hand-Drawn Pencil Underline */}
-                            <SketchUnderline className="w-52 text-amber-400 mb-4" />
+                                <div className="flex flex-col items-center lg:items-start">
+                                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                                        Aditya <span className="apple-text-gradient">Chaudhary</span>
+                                    </h1>
 
-                            <p className="text-[#C8BFA8] text-xs md:text-sm leading-relaxed mb-5 font-normal max-w-xl">
-                                Software Engineer specializing in high-throughput microservices, enterprise financial platforms, and data pipelines. Proven track record saving{' '}
+                                    <SketchUnderline className="w-48 text-sky-400 mb-2" />
+
+                                    <div className="flex items-center gap-2 text-slate-600 text-xs font-medium bg-slate-100/70 border border-slate-200/80 px-3 py-0.5 rounded-full">
+                                        <MapPin size={12} className="text-sky-500" />
+                                        <span>Bangalore, India 🇮🇳</span>
+                                        <span className="text-slate-300">•</span>
+                                        <span className="text-sky-600 font-semibold">Ex-AB InBev</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 max-w-2xl font-normal">
+                                Software Engineer specializing in high-throughput microservices, enterprise financial platforms, and cloud data pipelines. Proven track record saving{' '}
                                 <SketchCircle>
-                                    <span className="text-amber-300 font-semibold font-sketch text-base px-1">$600K+ annually</span>
+                                    <span className="text-sky-700 font-bold px-1.5 py-0.5 bg-sky-100/80 rounded-md">$600K+ annually</span>
                                 </SketchCircle>{' '}
-                                and handling billions in financial data.
-                            </p>
+                                and handling billions in financial data with microservices architecture.
+                            </div>
 
-                            {/* Action CTAs */}
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-                                <a href="#experience"
-                                    className="px-4 py-2 font-sketch font-bold text-amber-950 bg-amber-400 hover:bg-amber-300 text-xs shadow-md hover:shadow-amber-400/20 flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
+                            {/* Action Buttons */}
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-6">
+                                <a 
+                                    href="#experience"
+                                    className="px-4 py-2 font-semibold text-white bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 rounded-full shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 hover:scale-105 flex items-center gap-1.5 text-xs transition-all"
+                                >
                                     <span>Explore Experience</span>
                                     <ArrowUpRight size={14} />
                                 </a>
-                                <a href="https://github.com/AdityaChaudhary9501" target="_blank" rel="noopener noreferrer"
-                                    className="px-3.5 py-2 font-sketch font-bold text-amber-200 bg-[#2A2520] hover:bg-[#332E28] border border-amber-800/40 text-xs flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
-                                    <Github size={14} /><span>GitHub</span>
+                                <a 
+                                    href="https://github.com/AdityaChaudhary9501" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="px-3.5 py-2 font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm rounded-full text-xs flex items-center gap-1.5 transition-all hover:scale-105"
+                                >
+                                    <Github size={14} />
+                                    <span>GitHub</span>
                                 </a>
-                                <a href="https://linkedin.com/in/aditya-chaudhary-71306b190" target="_blank" rel="noopener noreferrer"
-                                    className="px-3.5 py-2 font-sketch font-bold text-amber-200 bg-[#2A2520] hover:bg-[#332E28] border border-amber-800/40 text-xs flex items-center gap-1.5 transition-all hover:-translate-y-0.5 rounded-sm">
-                                    <Linkedin size={14} /><span>LinkedIn</span>
+                                <a 
+                                    href="https://linkedin.com/in/aditya-chaudhary-71306b190" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="px-3.5 py-2 font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm rounded-full text-xs flex items-center gap-1.5 transition-all hover:scale-105"
+                                >
+                                    <Linkedin size={14} />
+                                    <span>LinkedIn</span>
                                 </a>
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Impact Metrics Grid */}
-                    <div className="mt-6 pt-5 border-t border-amber-800/25 grid grid-cols-2 md:grid-cols-4 gap-3">
-                        {keyMetrics.map((metric, idx) => (
-                            <SketchCardBorder key={idx}>
-                                <motion.div
-                                    whileHover={{ y: -2 }}
-                                    className="bg-[#14120E]/80 border border-amber-800/25 rounded-sm p-3 text-center hover:border-amber-600/40 transition-all h-full"
-                                    style={{ boxShadow: '2px 2px 0 rgba(212,168,83,0.08)' }}
-                                >
-                                    <div className="text-amber-600/70 text-[10px] font-mono uppercase tracking-widest mb-0.5">{metric.label}</div>
-                                    <div className="font-sketch text-2xl md:text-3xl font-bold amber-text">{metric.value}</div>
-                                    <div className="text-[#A09880] text-[10px] mt-0.5">{metric.subtext}</div>
-                                </motion.div>
-                            </SketchCardBorder>
-                        ))}
+                            {/* Impact Metrics Grid */}
+                            <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-sky-100">
+                                {keyMetrics.map((metric, idx) => {
+                                    const Icon = metric.icon;
+                                    return (
+                                        <motion.div
+                                            key={idx}
+                                            whileHover={{ y: -2 }}
+                                            className="bg-white/80 border border-sky-100 rounded-2xl p-2.5 text-center shadow-sm hover:shadow-md hover:border-sky-300 transition-all"
+                                        >
+                                            <div className="flex items-center justify-center gap-1 text-sky-600 mb-0.5">
+                                                <Icon size={12} />
+                                                <span className="text-[9px] font-semibold uppercase tracking-wider text-slate-500">{metric.label}</span>
+                                            </div>
+                                            <div className="text-base sm:text-lg font-bold apple-text-gradient">{metric.value}</div>
+                                            <div className="text-slate-500 text-[10px] mt-0.5 font-medium">{metric.subtext}</div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Right Column: Interactive macOS Terminal Widget (5 cols) */}
+                        <div className="lg:col-span-5 w-full">
+                            <TerminalWidget />
+                        </div>
+
                     </div>
                 </GlassCard>
-            </motion.div>
+            </div>
         </section>
     );
 };

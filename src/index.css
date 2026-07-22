@@ -1,114 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-main: #F4F8FC;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --accent-blue: #0284C7;
+    --sky-glow: #38BDF8;
+  }
+
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
-    background-color: #14120E;
-    color: #E8E0CC;
-    font-family: 'Inter', sans-serif;
+    background-color: #F0F6FF;
+    color: #0F172A;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3 {
-    font-family: 'Caveat', cursive;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-/* ─── Sketchbook / Hand-drawn effects ─── */
-
-/* Paper grain texture overlay */
-.paper-grain {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+/* ─── Custom Apple Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* Sketchy card border — double offset shadow trick */
-.sketch-card {
-  border: 2px solid rgba(212, 168, 83, 0.25);
-  border-radius: 3px;
-  box-shadow:
-    3px 3px 0 0 rgba(212, 168, 83, 0.12),
-    -1px -1px 0 0 rgba(212, 168, 83, 0.08),
-    6px 6px 0 0 rgba(0,0,0,0.25);
-  position: relative;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+::-webkit-scrollbar-track {
+  background: rgba(224, 242, 254, 0.4);
 }
 
-.sketch-card:hover {
-  border-color: rgba(212, 168, 83, 0.5);
-  box-shadow:
-    4px 4px 0 0 rgba(212, 168, 83, 0.2),
-    -1px -1px 0 0 rgba(212, 168, 83, 0.1),
-    8px 8px 0 0 rgba(0,0,0,0.3);
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.25);
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Pencil underline for headings */
-.pencil-underline {
-  position: relative;
-  display: inline-block;
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.45);
 }
 
-.pencil-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, rgba(212,168,83,0.9), rgba(212,168,83,0.4), rgba(212,168,83,0.7));
-  border-radius: 2px;
-  transform: rotate(-0.5deg);
+/* ─── Apple Glassmorphism & UI System ─── */
+
+.apple-glass {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 8px 24px -8px rgba(14, 165, 233, 0.10),
+    0 2px 8px -2px rgba(15, 23, 42, 0.03);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-/* Doodle circle around elements */
-.doodle-ring {
-  border: 2px solid rgba(212, 168, 83, 0.4);
-  border-radius: 50% 45% 55% 50% / 45% 50% 50% 55%;
+.apple-glass-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Rough-edge highlight pill */
-.sketch-pill {
-  border-radius: 2px 4px 3px 5px / 5px 3px 4px 2px;
-  border: 1.5px solid rgba(212, 168, 83, 0.35);
-  background: rgba(212, 168, 83, 0.07);
+.apple-glass-hover:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 45px -12px rgba(14, 165, 233, 0.22),
+    0 8px 16px -4px rgba(15, 23, 42, 0.06);
+  border-color: rgba(186, 230, 253, 0.8);
 }
 
-.sketch-pill:hover {
-  background: rgba(212, 168, 83, 0.14);
-  border-color: rgba(212, 168, 83, 0.6);
-}
-
-/* Chalk accent text */
-.chalk-text {
-  color: #F5F0DC;
-  text-shadow: 0 0 12px rgba(245, 240, 220, 0.2);
-}
-
-/* Amber gradient text */
-.amber-text {
-  background: linear-gradient(135deg, #D4A853 0%, #F0C97F 60%, #D4A853 100%);
+/* Apple Light Blue Gradient Text */
+.apple-text-gradient {
+  background: linear-gradient(135deg, #0284C7 0%, #2563EB 50%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Pencil-line decoration */
-.pencil-line {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(212,168,83,0.5) 20%, rgba(212,168,83,0.8) 50%, rgba(212,168,83,0.5) 80%, transparent);
-  border-radius: 1px;
+.apple-badge-blue {
+  background: rgba(224, 242, 254, 0.7);
+  border: 1px solid rgba(186, 230, 253, 0.8);
+  color: #0369A1;
 }
 
-/* Tech grid (kept for potential use) */
-.tech-grid-bg {
-  background-image: radial-gradient(rgba(212, 168, 83, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
+.glow-blue {
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
 }
 
-/* Scribble border animation */
-@keyframes scribble {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
+/* Hide scrollbars for clean landscape deck horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
