@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import AnimatedBackground from './components/AnimatedBackground';
 import SketchDoodleBackground from './components/SketchDoodleBackground';
@@ -23,8 +23,22 @@ const sectionComponents = [
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [navHeight, setNavHeight] = useState(96);
+  const navRef = useRef(null);
 
   const activeSection = sections[activeIndex];
+
+  // Keep the deck's top offset in sync with the navbar's real rendered
+  // height, since it changes across breakpoints and its scrolled state.
+  useEffect(() => {
+    const navEl = navRef.current;
+    if (!navEl) return;
+    const updateNavHeight = () => setNavHeight(navEl.offsetHeight);
+    updateNavHeight();
+    const resizeObserver = new ResizeObserver(updateNavHeight);
+    resizeObserver.observe(navEl);
+    return () => resizeObserver.disconnect();
+  }, []);
 
   const goTo = (sectionId) => {
     const idx = sections.indexOf(sectionId);
@@ -52,10 +66,13 @@ function App() {
       <SketchDoodleBackground />
 
       {/* Apple macOS Dynamic Island Glass Navbar */}
-      <Navbar activeSection={activeSection} setActiveSection={goTo} />
+      <Navbar ref={navRef} activeSection={activeSection} setActiveSection={goTo} />
 
       {/* Horizontal Slide Deck */}
-      <main className="relative z-10 h-[calc(100vh-5rem)] mt-20 overflow-hidden">
+      <main
+        className="relative z-10 overflow-hidden"
+        style={{ marginTop: navHeight, height: `calc(100vh - ${navHeight}px)` }}
+      >
         <div
           className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
