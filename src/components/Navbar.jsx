@@ -11,7 +11,7 @@ const navLinks = [
     { name: 'Recommendations', href: '#recommendations', id: 'recommendations' },
 ];
 
-const Navbar = ({ activeSection = 'about', setActiveSection }) => {
+const Navbar = React.forwardRef(({ activeSection = 'about', setActiveSection }, ref) => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [currentTime, setCurrentTime] = useState('');
@@ -41,7 +41,7 @@ const Navbar = ({ activeSection = 'about', setActiveSection }) => {
     };
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        <header ref={ref} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
             scrolled ? 'py-3' : 'py-5'
         }`}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -187,6 +187,6 @@ const Navbar = ({ activeSection = 'about', setActiveSection }) => {
             </AnimatePresence>
         </header>
     );
-};
+});
 
 export default Navbar;
