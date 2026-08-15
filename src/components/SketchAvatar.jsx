@@ -19,14 +19,6 @@ const SketchAvatar = ({ imageSrc = "/aditya.jpeg", alt = "Aditya Chaudhary" }) =
                         />
                     </div>
                 </div>
-
-                {/* Live Online / Open for Opportunities Pulse Badge */}
-                <div className="absolute bottom-2 right-2 flex items-center justify-center">
-                    <div className="relative flex h-5 w-5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-5 w-5 bg-emerald-500 border-2 border-white shadow-sm"></span>
-                    </div>
-                </div>
             </div>
 
             {/* Apple Status Caption */}
