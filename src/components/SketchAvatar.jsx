@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { Sparkles, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 const SketchAvatar = ({ imageSrc = "/aditya.jpeg", alt = "Aditya Chaudhary" }) => {
-    const [mode, setMode] = useState('photo'); // 'photo' | 'portrait'
-
     return (
         <div className="relative group flex flex-col items-center select-none">
             {/* Apple Minimalist Avatar Frame */}
@@ -17,9 +15,7 @@ const SketchAvatar = ({ imageSrc = "/aditya.jpeg", alt = "Aditya Chaudhary" }) =
                         <img
                             src={imageSrc}
                             alt={alt}
-                            className={`w-full h-full object-cover transition-all duration-500 ${
-                                mode === 'portrait' ? 'filter contrast-105 brightness-105 saturate-110 scale-105' : 'scale-100'
-                            }`}
+                            className="w-full h-full object-cover transition-all duration-500 filter contrast-105 brightness-105 saturate-110 scale-105"
                         />
                     </div>
                 </div>
@@ -30,31 +26,6 @@ const SketchAvatar = ({ imageSrc = "/aditya.jpeg", alt = "Aditya Chaudhary" }) =
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-5 w-5 bg-emerald-500 border-2 border-white shadow-sm"></span>
                     </div>
-                </div>
-
-                {/* Interactive Mode Pill */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-white/90 backdrop-blur-md border border-slate-200/80 px-2 py-1 shadow-lg rounded-full z-20 whitespace-nowrap text-[11px] font-medium text-slate-700">
-                    <button
-                        onClick={() => setMode('photo')}
-                        className={`flex items-center gap-1 px-2 py-0.5 rounded-full transition-all ${
-                            mode === 'photo'
-                                ? 'bg-sky-500 text-white shadow-sm font-semibold'
-                                : 'text-slate-600 hover:text-sky-600'
-                        }`}
-                    >
-                        <span>Original</span>
-                    </button>
-                    <button
-                        onClick={() => setMode('portrait')}
-                        className={`flex items-center gap-1 px-2 py-0.5 rounded-full transition-all ${
-                            mode === 'portrait'
-                                ? 'bg-sky-500 text-white shadow-sm font-semibold'
-                                : 'text-slate-600 hover:text-sky-600'
-                        }`}
-                    >
-                        <Sparkles size={11} />
-                        <span>Enhanced</span>
-                    </button>
                 </div>
             </div>
 
