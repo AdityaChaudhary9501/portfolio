@@ -1,10 +1,32 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderGit2, Github, Database, Brain, Smartphone, Sparkles, ExternalLink, X, ArrowUpRight } from 'lucide-react';
+import { FolderGit2, Github, Database, Brain, Smartphone, Sparkles, ExternalLink, X, ArrowUpRight, Bot, Map } from 'lucide-react';
 import GlassCard from './GlassCard';
 import { SketchUnderline } from './SketchDoodleStroke';
 
 const projects = [
+    {
+        id: 'account-payables',
+        title: 'Agentic Accounts Payable Automation',
+        category: 'AI Agents & Finance Automation',
+        badge: '3-Way Match AI',
+        icon: Bot,
+        description: "A fully autonomous AP system that runs the entire invoice 3-way match — reading the invoice, checking it against the purchase order and warehouse receipt, and posting to the ERP with zero touch. Discrepancies halt the agent and route to a human review dashboard.",
+        details: 'Uses Gemini 2.5 Flash to read raw PDF invoices and extract line items and PO numbers without brittle parsers. LangGraph orchestrates the agentic workflow with human-in-the-loop pauses on exceptions, backed by a FastAPI service and a React review dashboard.',
+        tech: ['Python', 'LangGraph', 'Gemini 2.5 Flash', 'FastAPI', 'React'],
+        github: 'https://github.com/AdityaChaudhary9501/account-payables',
+    },
+    {
+        id: 'story-map',
+        title: 'Story Map',
+        category: 'Generative AI & Geospatial',
+        badge: 'Local LLM',
+        icon: Map,
+        description: 'Turns any book or movie into a travel itinerary by extracting the real-world locations mentioned in the story and plotting them as an interactive route with contextual stops.',
+        details: 'Runs entirely on local models (Llama3, Mistral, Gemma2 via Ollama) to pull locations out of narrative text, geocodes them with Nominatim/OpenStreetMap, and renders the route on a Leaflet map.',
+        tech: ['React', 'Leaflet', 'Ollama', 'Node.js'],
+        github: 'https://github.com/AdityaChaudhary9501/story-map',
+    },
     {
         id: 'llm-sql',
         title: 'LLM SQL Optimiser',

@@ -18,6 +18,13 @@ const testimonials = [
         relation: 'Senior Product Manager @ AB InBev Squad',
         avatarText: 'NG',
         text: "Aditya has always displayed a phenomenal attitude of 'Can do, Can build'. No problem has been too complex and his solution-driven mindset is a great asset to any team or organization he is a part of. I have worked with him on my squad on an extremely complex financial tool and his keen insights in bringing the vision to life using database architecture principles was a key contribution, while he also double-hatted in ensuring the application was secure digitally. Aditya is a pleasure to have on any team and an invaluable asset."
+    },
+    {
+        name: 'Nachiket Galande',
+        role: 'Full Stack Developer @ Accenture',
+        relation: "Aditya's Teammate @ AB InBev",
+        avatarText: 'NG',
+        text: "Aditya and I worked together at AB InBev and he was one of the most dependable people on the team. He has a good eye for detail, whether he's building out a UI or designing how data flows through the system, and the work he delivers is always clean and thought through. His code reviews were genuinely useful, the kind where you walk away having actually learned something rather than just addressed a comment. In sprint planning he had a good sense of what was realistic and what wasn't, and was proactive about flagging scope concerns early before they became problems mid-sprint. Beyond the technical side, he's just easy to work with. Highly recommend him."
     }
 ];
 
