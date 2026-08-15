@@ -8,7 +8,6 @@ import SkillsMatrix from './components/SkillsMatrix';
 import ProjectsSection from './components/ProjectsSection';
 import CertificationsSection from './components/CertificationsSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import Footer from './components/Footer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const sections = ['about', 'experience', 'skills', 'projects', 'certifications', 'recommendations'];
