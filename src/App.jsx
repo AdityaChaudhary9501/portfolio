@@ -8,7 +8,6 @@ import SkillsMatrix from './components/SkillsMatrix';
 import ProjectsSection from './components/ProjectsSection';
 import CertificationsSection from './components/CertificationsSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const sections = ['about', 'experience', 'skills', 'projects', 'certifications', 'recommendations'];
 
@@ -89,37 +88,6 @@ function App() {
           ))}
         </div>
       </main>
-
-      {/* Floating Horizontal Deck Controls */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-white/90 backdrop-blur-xl border border-white/90 p-1.5 rounded-full shadow-xl shadow-sky-500/10">
-        <span className="text-[10px] font-bold text-slate-400 px-2 uppercase tracking-wider">
-          {activeIndex + 1} / {sections.length}
-        </span>
-        <button
-          onClick={() => setActiveIndex(Math.max(0, activeIndex - 1))}
-          disabled={activeIndex === 0}
-          className={`p-2 rounded-full transition-all ${
-            activeIndex === 0
-              ? 'text-slate-300 cursor-not-allowed'
-              : 'text-slate-700 hover:bg-sky-50 hover:text-sky-600'
-          }`}
-          title="Previous Section (← Arrow)"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          onClick={() => setActiveIndex(Math.min(sections.length - 1, activeIndex + 1))}
-          disabled={activeIndex === sections.length - 1}
-          className={`p-2 rounded-full transition-all ${
-            activeIndex === sections.length - 1
-              ? 'text-slate-300 cursor-not-allowed'
-              : 'text-slate-700 hover:bg-sky-50 hover:text-sky-600'
-          }`}
-          title="Next Section (→ Arrow)"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
 
       {/* Footer inside last slide is handled by TestimonialsSection's own padding */}
     </div>
