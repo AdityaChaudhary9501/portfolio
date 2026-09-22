@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderGit2, Github, Database, Brain, Smartphone, Sparkles, ExternalLink, X, ArrowUpRight, Bot, Map } from 'lucide-react';
+import { FolderGit2, Github, Database, Brain, Smartphone, Sparkles, ExternalLink, X, ArrowUpRight, Bot, Map, PlaneIcon } from 'lucide-react';
 import GlassCard from './GlassCard';
 import { SketchUnderline } from './SketchDoodleStroke';
 
@@ -26,6 +26,17 @@ const projects = [
         details: 'Runs entirely on local models (Llama3, Mistral, Gemma2 via Ollama) to pull locations out of narrative text, geocodes them with Nominatim/OpenStreetMap, and renders the route on a Leaflet map.',
         tech: ['React', 'Leaflet', 'Ollama', 'Node.js'],
         github: 'https://github.com/AdityaChaudhary9501/story-map',
+    },
+    {
+        id: 'vscode-jets',
+        title: 'Jets: VSCode Extension',
+        category: 'Developer Productivity',
+        badge: 'Playful Sidebar',
+        icon: PlaneIcon,
+        description: 'A squadron of fighter jets buzzes around your Explorer sidebar — vscode-pets, but fighter jets instead of pets. 50+ downlaods in the first week of launch on VSCode Marketplace.',
+        details: 'Built using the VSCode Extension API, this extension adds a playful touch to the coding experience by animating fighter jets in the sidebar, enhancing developer engagement and productivity.',
+        tech: ['Javascript', 'VSCode Extension API', 'Typescript'],
+        github: 'https://github.com/AdityaChaudhary9501/vscode-jets',
     },
     {
         id: 'llm-sql',
